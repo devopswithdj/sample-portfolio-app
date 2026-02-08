@@ -1,0 +1,65 @@
+<div class="app-container">
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <span class="logo-text">Portfolio</span>
+        <span class="logo-dot">.</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <app-hero></app-hero>
+    <app-projects></app-projects>
+    <app-skills></app-skills>
+    <app-contact></app-contact>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-logo">Portfolio<span>.</span></h3>
+          <p>Building digital experiences with passion and precision.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ currentYear }} Portfolio. All rights reserved.</p>
+        <button class="scroll-top" (click)="scrollToTop()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<router-outlet></router-outlet>

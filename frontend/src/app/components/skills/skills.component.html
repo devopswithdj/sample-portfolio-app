@@ -1,0 +1,36 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <h2 class="section-title">Skills & Expertise</h2>
+    
+    <div *ngIf="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading skills...</p>
+    </div>
+    
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="!loading && !error" class="skills-container">
+      <div *ngFor="let category of categorizedSkills; let i = index" 
+           class="skill-category"
+           [style.animation-delay]="(i * 0.15) + 's'">
+        <h3 class="category-title">{{ category[0] }}</h3>
+        <div class="skills-list">
+          <div *ngFor="let skill of category[1]" class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percentage">{{ skill.proficiency }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" 
+                   [style.width.%]="skill.proficiency"
+                   [attr.data-proficiency]="skill.proficiency">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

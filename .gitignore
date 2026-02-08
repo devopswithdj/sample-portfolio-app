@@ -1,0 +1,31 @@
+# .NET
+backend/bin/
+backend/obj/
+backend/*.user
+backend/*.suo
+backend/.vs/
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
+frontend/*.log
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# Environment
+.env
+.env.local
+*.log
