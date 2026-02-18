@@ -143,6 +143,10 @@ docker run -d -p 4200:80 --name frontend portfolio-frontend:latest
    docker build -t portfolio-backend:latest ./backend
    docker build -t portfolio-frontend:latest ./frontend
    
+   #Push Images to Registry
+   docker push portfolio-backend:latest
+   docker push portfolio-frontend:latest
+
    # For Minikube
    minikube image load portfolio-backend:latest
    minikube image load portfolio-frontend:latest
@@ -153,6 +157,14 @@ docker run -d -p 4200:80 --name frontend portfolio-frontend:latest
    kubectl apply -f k8s/backend-deployment.yaml
    kubectl apply -f k8s/frontend-deployment.yaml
    kubectl apply -f k8s/ingress.yaml
+   ```
+   ```
+   IF Image is pulling back off with authentication error, you can use below command to create secret and attach in your deployment yaml.
+
+   kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=<your username> --docker-password=<your password> --docker-email=<your email>
+
+   in deployment yaml uncomment ImagePullSecrets, once the secret is created.
+
    ```
 
 3. **Verify deployment**:
@@ -165,6 +177,9 @@ docker run -d -p 4200:80 --name frontend portfolio-frontend:latest
 4. **Access the application**:
    - For LoadBalancer service: Get external IP with `kubectl get svc frontend`
    - For Ingress: Add `portfolio.local` to your `/etc/hosts` file pointing to your cluster IP
+      Add <svc external IP> portfolio.local
+      On Windows: edit C:\Windows\System32\drivers\etc\hosts
+      Add-Content -Path "C:\Windows\System32\drivers\etc\hosts" -Value "172.18.255.200 portfolio.local"
    - For Minikube: `minikube service frontend --url`
 
 ### Scale the Application

@@ -14,9 +14,11 @@ spec:
       labels:
         app: portfolio-backend
     spec:
+      # imagePullSecrets:
+      # - name: regcred
       containers:
       - name: backend
-        image: portfolio-backend:latest
+        image: devopswithdj/portfolio-backend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
