@@ -176,6 +176,8 @@ docker run -d -p 4200:80 --name frontend portfolio-frontend:latest
 
 4. **Access the application**:
    - For LoadBalancer service: Get external IP with `kubectl get svc frontend`
+      In Local to add loadbalancer capabilities you need to install metalLB manifests.
+      kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
    - For Ingress: Add `portfolio.local` to your `/etc/hosts` file pointing to your cluster IP
       Add <svc external IP> portfolio.local
       On Windows: edit C:\Windows\System32\drivers\etc\hosts
